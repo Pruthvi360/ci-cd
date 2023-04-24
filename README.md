@@ -252,6 +252,11 @@ docker run -d --name myfirstapp -p 8087:8080 app:v1
 
 Click Dashboard > manage jenkins > click system > scroll down > publish over ssh > add > enter hostname (public/private) > username: root: password apply and save
 
+## 12.5) open ports in VPC firewall in gcp
+```
+gcloud compute --project=qwiklabs-gcp-00-88cd768cca2a firewall-rules create docker-ports --direction=INGRESS --priority=999 --network=default --action=ALLOW --rules=tcp:8080,tcp:8087 --source-ranges=0.0.0.0
+```
+
 ## 13) Deploy container
 
 1. Click Dashboard > New Item > Name: Build_and_deploy_container > Description: Build code with help of maven and deploy it on tomcat docker container.
